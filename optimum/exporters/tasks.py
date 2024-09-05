@@ -1007,7 +1007,7 @@ class TasksManager:
             onnx="SegformerOnnxConfig",
         ),
         "maskformer": supported_tasks_mapping(
-            "image-segmentation",
+            "instance-segmentation",
             onnx="MaskFormerOnnxConfig",
         ),
         "sew": supported_tasks_mapping(

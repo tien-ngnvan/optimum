@@ -853,7 +853,7 @@ class MaskFormerOnnxConfig(VisionOnnxConfig):
 
     @property
     def outputs(self) -> Dict[str, Dict[int, str]]:
-        if self.task == "image-segmentation":
+        if self.task == "instance-segmentation":
             return {
                 "class_queries_logits" : {0: "batch_size"},
                 "masks_queries_logits" : {0: "batch_size"}
