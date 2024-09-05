@@ -839,6 +839,27 @@ class SegformerOnnxConfig(YolosOnnxConfig):
     pass
 
 
+class MaskFormerOnnxConfig(VisionOnnxConfig):
+    NORMALIZED_CONFIG_CLASS = NormalizedVisionConfig
+    MIN_TORCH_VERSION = version.parse("1.11")
+    DEFAULT_ONNX_OPSET = 14  # now uses F.scaled_dot_product_attention by default for torch>=2.1.1.
+
+    @property
+    def inputs(self) -> Dict[str, Dict[int, str]]:
+        return {
+            "pixel_values": {0: "batch_size", 1: "num_channels", 2: "height", 3: "width"},
+            "pixel_mask": {0: "batch", 1: "height", 2: "width"}
+        }
+
+    @property
+    def outputs(self) -> Dict[str, Dict[int, str]]:
+        if self.task == "semantic-segmentation":
+            return {
+                "class_queries_logits" : {0: "batch_size"},
+                "masks_queries_logits" : {0: "batch_size"}
+            }
+
+
 class MobileNetV1OnnxConfig(ViTOnnxConfig):
     ATOL_FOR_VALIDATION = 1e-4
     DEFAULT_ONNX_OPSET = 11

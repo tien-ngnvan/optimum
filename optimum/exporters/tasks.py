@@ -1005,6 +1005,10 @@ class TasksManager:
             "semantic-segmentation",
             onnx="SegformerOnnxConfig",
         ),
+        "maskformer": supported_tasks_mapping(
+            "semantic-segmentation",
+            onnx="MaskFormerOnnxConfig",
+        ),
         "sew": supported_tasks_mapping(
             "feature-extraction",
             "automatic-speech-recognition",
