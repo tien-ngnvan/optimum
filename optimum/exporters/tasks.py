@@ -210,6 +210,7 @@ class TasksManager:
             "fill-mask": "AutoModelForMaskedLM",
             "image-classification": "AutoModelForImageClassification",
             "image-segmentation": ("AutoModelForImageSegmentation", "AutoModelForSemanticSegmentation"),
+            "instance-segmentation": "AutoModelForInstanceSegmentation",
             "image-to-image": "AutoModelForImageToImage",
             "image-to-text": "AutoModelForVision2Seq",
             "mask-generation": "AutoModel",
