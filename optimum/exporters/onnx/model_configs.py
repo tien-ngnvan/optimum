@@ -848,7 +848,7 @@ class MaskFormerOnnxConfig(VisionOnnxConfig):
     def inputs(self) -> Dict[str, Dict[int, str]]:
         return {
             "pixel_values": {0: "batch_size", 1: "num_channels", 2: "height", 3: "width"},
-            "pixel_mask": {0: "batch", 1: "height", 2: "width"}
+            # "pixel_mask": {0: "batch", 1: "height", 2: "width"}
         }
 
     @property
